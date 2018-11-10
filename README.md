@@ -1,59 +1,54 @@
 # checkasf
 # checkasf
-Ç°ÑÔ£º
+å‰è¨€ï¼š
 
-Ö®Ç°Â¥Ö÷ÀûÓÃÊÖÖÐµÄÏÐÖÃ·þÎñÆ÷¹Ò¿¨£¬ÒÔÇ°2.0°æ±¾µÄÊ±ºò¿ÉÒÔÉèÖÃ²»Òª×Ô¶¯¸üÐÂ£¬¾õµÃºÜ·½±ã£¬ºóÀ´²»¸üÐÂ²»¸øÓÃ£¬ËùÒÔ¾ÍÉý¼¶µ½3.0+°æ±¾£¬ÌØµãÃ¿Ìì¶¼»á¼ì²é¸üÐÂ£¬Ò»¸üÐÂ¾Í»áÍË³öscreen£¬ÎÞ·¨½øÐÐ¹Ò¿¨£¬½üÀ´Í»·¢ÆæÏë£¬ÄÜ·ñÀûÓÃcrontabÀ´¶¨Ê±¼ì²âÄØ£¿ÓÚÊÇ¾ÍÓÐÁËÕâÆª½Ì³Ì
-Ä¿Ç°¸Ã½Å±¾½öÊÊÅäCentOS£¬ÆäËûÏµÍ³ÔÚÊÊÅäÖÐ(¹¾¹¾¹¾)
-½Å±¾¹¦ÄÜ£º
-¼ì²âÊÇ·ñÒÑ°²×°expectºÍscreen
-¼ì²âASFÊÇ·ñ´æÔÚ
-ÈôÒÔÉÏ¶¼´æÔÚÔò¼ì²âasfÊÇ·ñÔËÐÐ£¬Èô²»ÔÚÔËÐÐÔòÆô¶¯ASF
+ä¹‹å‰æ¥¼ä¸»åˆ©ç”¨æ‰‹ä¸­çš„é—²ç½®æœåŠ¡å™¨æŒ‚å¡ï¼Œä»¥å‰2.0ç‰ˆæœ¬çš„æ—¶å€™å¯ä»¥è®¾ç½®ä¸è¦è‡ªåŠ¨æ›´æ–°ï¼Œè§‰å¾—å¾ˆæ–¹ä¾¿ï¼ŒåŽæ¥ä¸æ›´æ–°ä¸ç»™ç”¨ï¼Œæ‰€ä»¥å°±å‡çº§åˆ°3.0+ç‰ˆæœ¬ï¼Œç‰¹ç‚¹æ¯å¤©éƒ½ä¼šæ£€æŸ¥æ›´æ–°ï¼Œä¸€æ›´æ–°å°±ä¼šé€€å‡ºscreenï¼Œæ— æ³•è¿›è¡ŒæŒ‚å¡ï¼Œè¿‘æ¥çªå‘å¥‡æƒ³ï¼Œèƒ½å¦åˆ©ç”¨crontabæ¥å®šæ—¶æ£€æµ‹å‘¢ï¼ŸäºŽæ˜¯å°±æœ‰äº†è¿™ç¯‡æ•™ç¨‹
+ç›®å‰è¯¥è„šæœ¬ä»…é€‚é…CentOSï¼Œå…¶ä»–ç³»ç»Ÿåœ¨é€‚é…ä¸­(å’•å’•å’•)
+è„šæœ¬åŠŸèƒ½ï¼š
+æ£€æµ‹æ˜¯å¦å·²å®‰è£…expectå’Œscreen
+æ£€æµ‹ASFæ˜¯å¦å­˜åœ¨
+è‹¥ä»¥ä¸Šéƒ½å­˜åœ¨åˆ™æ£€æµ‹asfæ˜¯å¦è¿è¡Œï¼Œè‹¥ä¸åœ¨è¿è¡Œåˆ™å¯åŠ¨ASF
 
-Ä¬ÈÏASFÂ·¾¶ÊÇ/opt/ASF/ArchiSteamFarm£¬ÈôÂ·¾¶²»Ò»Ñù¿ÉÒÔÖ´ÐÐ½Å±¾ÐÞ¸Ä»òÕß×ÔÐÐÐÞ¸Ä
+é»˜è®¤ASFè·¯å¾„å­˜åœ¨äºŽpath.jsonæ–‡ä»¶ä¸­ï¼Œé»˜è®¤æ˜¯/opt/ASF/ArchiSteamFarmï¼Œè‹¥è·¯å¾„ä¸ä¸€æ ·å¯ä»¥æ‰§è¡Œè„šæœ¬ä¿®æ”¹æˆ–è€…è‡ªè¡Œä¿®æ”¹
 
-Ê¹ÓÃ·½·¨£º
-Ê×ÏÈÔÚÈÎÒâÂ·¾¶ÏÂ´´½¨Ò»¸öÃûÎªcheckasf.shµÄ½Å±¾ÎÄ¼þ
-vi checkasf.sh
-»òÕß
-vim checkasf.sh
-ÊÊÓÃÓÚÒÑ¾­°²×°ÍêvimµÄÓÃ»§
+ä½¿ç”¨æ–¹æ³•ï¼š
 
-¸´ÖÆÖÐÎÄ°æ»òÕßÓ¢ÎÄ°æµÄ´úÂë£¨ÖÐÎÄ°æÊÊÓÃÓÚ»·¾³ÎªÖÐÎÄµÄÏµÍ³£¬Ó¢ÎÄ°æÍ¨ÓÃ£¬½¨ÒéÒ»°ã»¹ÊÇÊ¹ÓÃÓ¢ÎÄ°æ£©£¬°´I¼ü£¬È»ºóÕ³Ìù´úÂë
-°´ÏÂESC¼üÈ»ºóÊäÈë:wq±£´æÍË³ö
 
-½ÓÏÂÀ´ÊäÈë
-chmod +x checkasf.sh
+ä»Žæˆ‘çš„Githubä¸Šé¢downä»£ç 
+git clone https://github.com/jianwei569/checkasf
+å¤åˆ¶ä»£ç 
 
-¸ø½Å±¾Ìí¼ÓÔËÐÐÈ¨ÏÞ
 
-Ö´ÐÐ
-crontab -e
+æŽ¥ä¸‹æ¥è¿›å…¥checkasfæ–‡ä»¶å¤¹
+cd checkasf
 
-°´I¼ü£¬½«¹â±êÒÆÖÁ×îÏÂÃæ£¬ÁíÆðÒ»ÐÐ£¬ÊäÈë
-00 12 * * * /root/checkasf.sh
+æŽ¥ä¸‹æ¥è¾“å…¥
+chmod +x *.sh
 
-°´ÏÂESC¼üÈ»ºóÊäÈë
-:wq
-±£´æÍË³ö
+crontabåŸºæœ¬æ ¼å¼ï¼Œå¯ä»¥å‚è€ƒä¸€ä¸‹
 
-crontab»ù±¾¸ñÊ½£¬¿ÉÒÔ²Î¿¼Ò»ÏÂ
-
-»ù±¾¸ñÊ½ : 
-*¡¡¡¡*¡¡¡¡*¡¡¡¡*¡¡¡¡*¡¡¡¡command 
-·Ö¡¡Ê±¡¡ÈÕ¡¡ÔÂ¡¡ÖÜ¡¡ÃüÁî 
-µÚ1ÁÐ±íÊ¾·ÖÖÓ1¡«59 Ã¿·ÖÖÓÓÃ*»òÕß */1±íÊ¾ 
-µÚ2ÁÐ±íÊ¾Ð¡Ê±1¡«23£¨0±íÊ¾0µã£© 
-µÚ3ÁÐ±íÊ¾ÈÕÆÚ1¡«31 
-µÚ4ÁÐ±íÊ¾ÔÂ·Ý1¡«12 
-µÚ5ÁÐ±êÊ¶ºÅÐÇÆÚ0¡«6£¨0±íÊ¾ÐÇÆÚÌì£© 
-µÚ6ÁÐÒªÔËÐÐµÄÃüÁî 
-ÀýÈç£º
+åŸºæœ¬æ ¼å¼ : 
+*ã€€ã€€*ã€€ã€€*ã€€ã€€*ã€€ã€€*ã€€ã€€command 
+åˆ†ã€€æ—¶ã€€æ—¥ã€€æœˆã€€å‘¨ã€€å‘½ä»¤ 
+ç¬¬1åˆ—è¡¨ç¤ºåˆ†é’Ÿ1ï½ž59 æ¯åˆ†é’Ÿç”¨*æˆ–è€… */1è¡¨ç¤º 
+ç¬¬2åˆ—è¡¨ç¤ºå°æ—¶1ï½ž23ï¼ˆ0è¡¨ç¤º0ç‚¹ï¼‰ 
+ç¬¬3åˆ—è¡¨ç¤ºæ—¥æœŸ1ï½ž31 
+ç¬¬4åˆ—è¡¨ç¤ºæœˆä»½1ï½ž12 
+ç¬¬5åˆ—æ ‡è¯†å·æ˜ŸæœŸ0ï½ž6ï¼ˆ0è¡¨ç¤ºæ˜ŸæœŸå¤©ï¼‰ 
+ç¬¬6åˆ—è¦è¿è¡Œçš„å‘½ä»¤ 
+ä¾‹å¦‚ï¼š
 00 12 * * * /root/checkasf.sh 
-±íÊ¾Ã¿ÌìÖÐÎç12µã¶¼¼ì²âÒ»´ÎASFµÄ×´Ì¬
+è¡¨ç¤ºæ¯å¤©ä¸­åˆ12ç‚¹éƒ½æ£€æµ‹ä¸€æ¬¡ASFçš„çŠ¶æ€
 
-³£¼ûÎÊÌâ£º
-Q£ºÎªÉ¶Ã»ÓÐÆäËûÏµÍ³µÄÑ½
-A£ºÒòÎª»¹Ã»×öÊÊÅäÑ½
+å¸¸è§é—®é¢˜ï¼š
+Qï¼šä¸ºå•¥æ²¡æœ‰å…¶ä»–ç³»ç»Ÿçš„å‘€
+Aï¼šå› ä¸ºè¿˜æ²¡åšé€‚é…å‘€
 
-Q£ºÔõÃ´¿´ASFÄ¿Â¼°¡
-A£ºcd½øASFËùÔÚÄ¿Â¼£¬È»ºóÊäÈëpwd
+Qï¼šæ€Žä¹ˆçœ‹ASFç›®å½•å•Š
+Aï¼šcdè¿›ASFæ‰€åœ¨ç›®å½•ï¼Œç„¶åŽè¾“å…¥pwd
+
+Q:ä¸ºå•¥ä¼šå‡ºçŽ°no crontab for rootå•Š
+Aï¼šè¿™æ˜¯å› ä¸ºä½ çš„ç³»ç»Ÿè¿˜æ²¡æœ‰ä¸€ä¸ªå®šæ—¶è®¡åˆ’
+    åœ¨ root ç”¨æˆ·ä¸‹è¾“å…¥ crontab -e
+æŒ‰ Esc æŒ‰ï¼š wq   å›žè½¦è¾“å…¥
+ç„¶åŽå°±å¯ä»¥ç»§ç»­æ‰§è¡Œå•¦ï¼
