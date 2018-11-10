@@ -61,19 +61,32 @@ else
         install_screen
 fi
 
-ASF="/opt/ASF/ArchiSteamFarm"
-echo "default ASF path:$ASF"
+NewAsfPath(){
+	read ASF
+	final=$(echo $ASF | grep -E '^\/(\w+\/?)+$')
+	if [ -n final ]
+	then
+		echo -e "{\n\"path\":\"$ASF\"\n}" > path.json
+		#cat test.json
+	else
+		echo "Invalid!"
+fi
+}
+
+#ASF="/opt/ASF/ArchiSteamFarm"
+path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
+echo "default ASF path:$path"
 while :
 do
-	if [ -f $ASF ]
+	if [ -f "$path" ] && [ -n "$path" ]
 	then
 		echo "ASF exist!"
 		break
 	else	
 		echo "can not detect ASF!"
-		read -p "input new ASF path?y/n" yn
+		read -p "input new ASF path?y/n:" yn
 		case $yn in
-		[Yy]) read ASF
+		[Yy]) NewAsfPath
 		;;
 		[Nn]) exit 0
 		;;
@@ -107,3 +120,20 @@ else
         echo "running ASF!"
         runasf
 fi
+
+CreatNewCrontab(){
+	CUR_PATH=$(cd "$(dirname "$0")"; pwd)
+	File_name="/crontab.sh"
+	crontab -l > conf && echo "00 12 * * * ${CUR_PATH}${File_name} >> /tmp/tmp.txt" >> conf && crontab conf && rm -f conf
+}
+
+
+read -p "Create new Crontab?y/n:" yon
+case $yon in
+	[Yy]) CreatNewCrontab
+	;;
+	[Nn]) exit 0
+	;;
+	*) exit 0
+	;;
+esac

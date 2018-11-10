@@ -63,12 +63,26 @@ else
         install_screen
 fi
 
-ASF="/opt/ASF/ArchiSteamFarm"
+#更改ASF的路径
+NewAsfPath(){
+	read ASF
+	final=$(echo $ASF | grep -E '^\/(\w+\/?)+$')
+	if [ -n final ]
+	then
+		echo -e "{\n\"path\":\"$ASF\"\n}" > path.json
+		#cat test.json
+	else
+		echo "Invalid!"
+fi
+}
+
+#ASF="/opt/ASF/ArchiSteamFarm"
 #判断ASF是否存在
-echo "默认ASF路径为$ASF"
+path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
+echo "默认ASF路径为$path"
 while :
 do
-	if [ -f $ASF ]
+	if [ -f "$path" ] && [ -n "$path" ]
 	then
 		echo "ASF文件存在，继续执行！"
 		break
@@ -76,7 +90,7 @@ do
 		echo "无法检测到ASF！"
 		read -p "是否输入新的ASF路径？y/n" yn
 		case $yn in
-		[Yy]) read ASF
+		[Yy]) NewAsfPath
 		;;
 		[Nn]) exit 0
 		;;
@@ -111,4 +125,20 @@ else
         runasf
 fi
 
+#创建定时检测计划
+CreatNewCrontab(){
+	CUR_PATH=$(cd "$(dirname "$0")"; pwd)
+	File_name="/crontab.sh"
+	crontab -l > conf && echo "00 12 * * * ${CUR_PATH}${File_name} >> /tmp/tmp.txt" >> conf && crontab conf && rm -f conf
+}
 
+
+read -p "创建一个定时检测计划吗?y/n:" yon
+case $yon in
+	[Yy]) CreatNewCrontab
+	;;
+	[Nn]) exit 0
+	;;
+	*) exit 0
+	;;
+esac
