@@ -102,7 +102,7 @@ done
 #ÅÐ¶Ïasf×´Ì¬
 #screen -ls | grep "asf"
 runasf(){
-cmd=$"$ASF";
+cmd=$"$path";
 screen_name="asf"
 screen -dmS $screen_name
 screen -x -S $screen_name -p 0 -X stuff "$cmd"
