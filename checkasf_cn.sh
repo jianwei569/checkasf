@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#ÅĞ¶ÏÏµÍ³
+#åˆ¤æ–­ç³»ç»Ÿ
 Get_Dist_Name()
 {
     if grep -Eqii "CentOS" /etc/issue || grep -Eq "CentOS" /etc/*-release; then
@@ -40,15 +40,15 @@ install_screen(){
 	yum install -y screen
 }
 
-#ÅĞ¶ÏÊÇ·ñÓĞ°²×°expect»òscreen
+#åˆ¤æ–­æ˜¯å¦æœ‰å®‰è£…expectæˆ–screen
 #check_expect=$($PM | grep "expect")
 check_expect=$(yum list installed | grep "expect")
 
 if [[ $check_expect =~ "expect" ]]
 then
-        echo "expectÒÑ°²×°£¬¼ÌĞøÖ´ĞĞ£¡"
+        echo "expectå·²å®‰è£…ï¼Œç»§ç»­æ‰§è¡Œï¼"
 else
-        echo "¼ì²âµ½Î´°²×°expect£¬×Ô¶¯°²×°!"
+        echo "æ£€æµ‹åˆ°æœªå®‰è£…expectï¼Œè‡ªåŠ¨å®‰è£…!"
         install_expect
 fi
 
@@ -57,13 +57,13 @@ check_screen=$(yum list installed | grep "screen")
 
 if [[ $check_screen =~ "screen" ]]
 then
-        echo "screenÒÑ°²×°£¬¼ÌĞøÖ´ĞĞ!"
+        echo "screenå·²å®‰è£…ï¼Œç»§ç»­æ‰§è¡Œ!"
 else
-        echo "¼ì²âµ½Î´°²×°screen£¬×Ô¶¯°²×°!"
+        echo "æ£€æµ‹åˆ°æœªå®‰è£…screenï¼Œè‡ªåŠ¨å®‰è£…!"
         install_screen
 fi
 
-#¸ü¸ÄASFµÄÂ·¾¶
+#æ›´æ”¹ASFçš„è·¯å¾„
 NewAsfPath(){
 	read ASF
 	final=$(echo $ASF | grep -E '^\/(\w+\/?)+$')
@@ -77,18 +77,19 @@ fi
 }
 
 #ASF="/opt/ASF/ArchiSteamFarm"
-#ÅĞ¶ÏASFÊÇ·ñ´æÔÚ
-path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
-echo "Ä¬ÈÏASFÂ·¾¶Îª$path"
+#åˆ¤æ–­ASFæ˜¯å¦å­˜åœ¨
+
+echo "é»˜è®¤ASFè·¯å¾„ä¸º$path"
 while :
 do
+	path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
 	if [ -f "$path" ] && [ -n "$path" ]
 	then
-		echo "ASFÎÄ¼ş´æÔÚ£¬¼ÌĞøÖ´ĞĞ£¡"
+		echo "ASFæ–‡ä»¶å­˜åœ¨ï¼Œç»§ç»­æ‰§è¡Œï¼"
 		break
 	else	
-		echo "ÎŞ·¨¼ì²âµ½ASF£¡"
-		read -p "ÊÇ·ñÊäÈëĞÂµÄASFÂ·¾¶£¿y/n" yn
+		echo "æ— æ³•æ£€æµ‹åˆ°ASFï¼"
+		read -p "æ˜¯å¦è¾“å…¥æ–°çš„ASFè·¯å¾„ï¼Ÿy/n" yn
 		case $yn in
 		[Yy]) NewAsfPath
 		;;
@@ -99,7 +100,7 @@ do
 		esac
 	fi
 done
-#ÅĞ¶Ïasf×´Ì¬
+#åˆ¤æ–­asfçŠ¶æ€
 #screen -ls | grep "asf"
 runasf(){
 cmd=$"$path";
@@ -119,13 +120,13 @@ check_asf=$(screen -ls | grep "asf")
 echo "command(bash) results are:$check_asf"
 if [[ $check_asf =~ "asf" ]]
 then
-        echo "ASFÒÑ¾­ÔÚÔËĞĞÁË£¡"
+        echo "ASFå·²ç»åœ¨è¿è¡Œäº†ï¼"
 else
-        echo "ASFÎ´ÔÚÔËĞĞ! Æô¶¯ASF!"
+        echo "ASFæœªåœ¨è¿è¡Œ! å¯åŠ¨ASF!"
         runasf
 fi
 
-#´´½¨¶¨Ê±¼ì²â¼Æ»®
+#åˆ›å»ºå®šæ—¶æ£€æµ‹è®¡åˆ’
 CreatNewCrontab(){
 	CUR_PATH=$(cd "$(dirname "$0")"; pwd)
 	File_name="/crontab.sh"
@@ -133,7 +134,7 @@ CreatNewCrontab(){
 }
 
 
-read -p "´´½¨Ò»¸ö¶¨Ê±¼ì²â¼Æ»®Âğ?y/n:" yon
+read -p "åˆ›å»ºä¸€ä¸ªå®šæ—¶æ£€æµ‹è®¡åˆ’å—?y/n:" yon
 case $yon in
 	[Yy]) CreatNewCrontab
 	;;
