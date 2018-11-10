@@ -74,7 +74,7 @@ fi
 }
 
 #ASF="/opt/ASF/ArchiSteamFarm"
-
+path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
 echo "default ASF path:$path"
 while :
 do
