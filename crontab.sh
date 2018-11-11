@@ -13,6 +13,7 @@ EOF
 }
 
 check_asf=$(screen -ls | grep "asf")
+date >> /tmp/tmp.txt
 #echo $check_asf
 echo "command(bash) results are:$check_asf"
 if [[ $check_asf =~ "asf" ]]
