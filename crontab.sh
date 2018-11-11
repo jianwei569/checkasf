@@ -1,4 +1,4 @@
-path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
+path=$(cat ${checkasf}/path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
 runasf(){
 cmd=$"$path";
 screen_name="asf"
