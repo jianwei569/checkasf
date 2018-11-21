@@ -135,10 +135,20 @@ CreatNewCrontab(){
 	crontab -l > conf && echo "0 */2 * * * ${CUR_PATH}${File_name} >> /tmp/tmp.txt" >> conf && crontab conf && rm -f conf
 }
 
+CheckCrontab(){
+	result=$(crontab -l | grep "checkasf/crontab.sh")
+	if [[ $result =~ "checkasf/crontab.sh" ]]
+	then
+        echo "Already have checkasf！"
+	else
+        echo "No checkasf create one!"
+        CreatNewCrontab
+	fi
+}
 
 read -p "Create new Crontab?y/n:" yon
 case $yon in
-	[Yy]) CreatNewCrontab
+	[Yy]) CheckCrontab
 	;;
 	[Nn]) exit 0
 	;;
