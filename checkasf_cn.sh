@@ -140,10 +140,21 @@ CreatNewCrontab(){
 	crontab -l > conf && echo "0 */2 * * * ${CUR_PATH}${File_name} >> /tmp/tmp.txt" >> conf && crontab conf && rm -f conf
 }
 
+#检测是否已经存在相同的定时检测计划
+CheckCrontab(){
+	result=$(crontab -l | grep "checkasf/crontab.sh")
+	if [[ $result =~ "checkasf/crontab.sh" ]]
+	then
+        echo "已经有定时检测ASF计划了！"
+	else
+        echo "暂无定时检测ASF计划，创建中!"
+        CreatNewCrontab
+	fi
+}
 
 read -p "创建一个定时检测计划吗?y/n:" yon
 case $yon in
-	[Yy]) CreatNewCrontab
+	[Yy]) CheckCrontab
 	;;
 	[Nn]) exit 0
 	;;
