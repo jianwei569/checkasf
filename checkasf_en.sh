@@ -127,7 +127,7 @@ CreatNewCrontab(){
 	File_name="/crontab.sh"
 	final=${CUR_PATH}
 	sed  -i '1 i\checkasf='"$final"''  crontab.sh
-	crontab -l > conf && echo "00 12 * * * ${CUR_PATH}${File_name} >> /tmp/tmp.txt" >> conf && crontab conf && rm -f conf
+	crontab -l > conf && echo "0 */2 * * * ${CUR_PATH}${File_name} >> /tmp/tmp.txt" >> conf && crontab conf && rm -f conf
 }
 
 
