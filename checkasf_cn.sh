@@ -94,7 +94,7 @@ do
 		break
 	else	
 		echo "无法检测到ASF！"
-		read -p "是否输入新的ASF路径？y/n" yn
+		read -p "是否输入新的ASF路径？y/n:" yn
 		case $yn in
 		[Yy]) NewAsfPath
 		;;
