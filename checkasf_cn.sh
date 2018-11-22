@@ -83,12 +83,12 @@ fi
 
 #ASF="/opt/ASF/ArchiSteamFarm"
 #判断ASF是否存在
-path=$(cat path.json | jq '.path' | sed 's/\"//g')
+path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
 echo "默认ASF路径为$path"
 while :
 do
-	path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
-	if [ -f "$path" ] && [ -n "$path" ]
+	path1=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
+	if [ -f "$path1" ] && [ -n "$path1" ]
 	then
 		echo "ASF文件存在，继续执行！"
 		break
