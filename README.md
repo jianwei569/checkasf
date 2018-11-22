@@ -14,6 +14,8 @@
 使用方法：
 
 
+git clone https://github.com/jianwei569/checkasf && cd checkasf && chmod +x *.sh
+
 从我的Github上面down代码
 git clone https://github.com/jianwei569/checkasf
 复制代码
