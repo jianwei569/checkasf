@@ -69,7 +69,7 @@ fi
 NewAsfPath(){
 	read ASF
 	final=$(echo $ASF | grep -E '^\/(\w+\/?)+$')
-	if [ -n final ]
+	if [ ! -z $final ]
 	then
 		echo -e "{\n\"path\":\"$ASF\"\n}" > path.json
 		#cat test.json
