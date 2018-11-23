@@ -77,7 +77,7 @@ NewAsfPath(){
 		echo -e "{\n\"path\":\"$ASF\"\n}" > path.json
 		#cat test.json
 	else
-		echo "Invalid!"
+		echo "无效输入!"
 fi
 }
 
