@@ -79,11 +79,11 @@ fi
 }
 
 #ASF="/opt/ASF/ArchiSteamFarm"
-path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
+path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | awk -F'"' '{print $2}')
 echo "default ASF path:$path"
 while :
 do
-	path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | sed 's/\"//g')
+	path=$(cat path.json | awk -F "[:]" '/path/{print$2}' | awk -F'"' '{print $2}')
 	if [ -f "$path" ] && [ -n "$path" ]
 	then
 		echo "ASF exist!"
