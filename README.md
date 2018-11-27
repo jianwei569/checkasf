@@ -1,5 +1,4 @@
 # checkasf
-# checkasf
 前言：
 
 之前楼主利用手中的闲置服务器挂卡，以前2.0版本的时候可以设置不要自动更新，觉得很方便，后来不更新不给用，所以就升级到3.0+版本，特点每天都会检查更新，一更新就会退出screen，无法进行挂卡，近来突发奇想，能否利用crontab来定时检测呢？于是就有了这篇教程
@@ -13,22 +12,23 @@
 
 使用方法：
 
----
-一条命令直接搞定
+
+一条命令直接搞定：
 git clone https://github.com/jianwei569/checkasf && cd checkasf && chmod +x *.sh
----
+
+
 分步骤
+
 从我的Github上面down代码
 git clone https://github.com/jianwei569/checkasf
 复制代码
-
 
 接下来进入checkasf文件夹
 cd checkasf
 
 接下来输入
 chmod +x *.sh
----
+
 crontab基本格式，可以参考一下
 
 基本格式 : 
@@ -43,7 +43,7 @@ crontab基本格式，可以参考一下
 例如：
 00 12 * * * /root/checkasf.sh 
 表示每天中午12点都检测一次ASF的状态
----
+
 常见问题：
 Q：为啥没有其他系统的呀
 A：因为还没做适配呀
