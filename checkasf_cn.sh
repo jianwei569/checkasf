@@ -16,13 +16,13 @@ Get_Dist_Name()
         PM='yum'
     elif grep -Eqi "Debian" /etc/issue || grep -Eq "Debian" /etc/*-release; then
         DISTRO='Debian'
-        PM='apt'
+        PM='apt-get'
     elif grep -Eqi "Ubuntu" /etc/issue || grep -Eq "Ubuntu" /etc/*-release; then
         DISTRO='Ubuntu'
-        PM='apt'
+        PM='apt-get'
     elif grep -Eqi "Raspbian" /etc/issue || grep -Eq "Raspbian" /etc/*-release; then
         DISTRO='Raspbian'
-        PM='apt'
+        PM='apt-get'
     else
         DISTRO='unknow'
     fi
@@ -32,17 +32,20 @@ Get_Dist_Name
 
 update_software(){
 	#$PM
-	yum update -y
+	#yum update -y
+	$PM update -y
 }
 
 install_expect(){
 	#$PM
-	yum install -y expect
+	#yum install -y expect
+	$PM install -y expect
 }
 
 install_screen(){
 	#$PM
-	yum install -y screen
+	#yum install -y screen
+	$PM install -y screen
 }
 
 #判断是否有安装expect或screen
