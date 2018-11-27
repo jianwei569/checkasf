@@ -31,7 +31,7 @@ Get_Dist_Name
 
 update_software(){
 	#$PM
-	yum install update -y
+	yum update -y
 }
 
 install_expect(){
