@@ -13,9 +13,11 @@
 
 使用方法：
 
-
+---
+一条命令直接搞定
 git clone https://github.com/jianwei569/checkasf && cd checkasf && chmod +x *.sh
-
+---
+分步骤
 从我的Github上面down代码
 git clone https://github.com/jianwei569/checkasf
 复制代码
@@ -26,7 +28,7 @@ cd checkasf
 
 接下来输入
 chmod +x *.sh
-
+---
 crontab基本格式，可以参考一下
 
 基本格式 : 
@@ -41,7 +43,7 @@ crontab基本格式，可以参考一下
 例如：
 00 12 * * * /root/checkasf.sh 
 表示每天中午12点都检测一次ASF的状态
-
+---
 常见问题：
 Q：为啥没有其他系统的呀
 A：因为还没做适配呀
