@@ -47,8 +47,8 @@ install_screen(){
 	$PM install -y screen
 }
 
-#check_expect=$($PM | grep "expect")
-check_expect=$(yum list installed | grep "expect")
+check_expect=$($PM list installed | grep "expect")
+#check_expect=$(yum list installed | grep "expect")
 
 if [[ $check_expect =~ "expect" ]]
 then
@@ -58,8 +58,8 @@ else
         install_expect
 fi
 
-#check_screen=$($PM | grep "screen")
-check_screen=$(yum list installed | grep "screen")
+check_screen=$($PM list installed | grep "screen")
+#check_screen=$(yum list installed | grep "screen")
 
 if [[ $check_screen =~ "screen" ]]
 then
