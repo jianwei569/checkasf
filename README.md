@@ -52,15 +52,20 @@ crontab基本格式，可以参考一下
 00 12 * * * /root/checkasf.sh 
 表示每天中午12点都检测一次ASF的状态
 
-常见问题：
-Q：为啥没有其他系统的呀
-A：因为还没做适配呀
+常见问题：    
+Q：-bash: git: command not found    
+A：没有安装git，先安装git    
+    centos：sudo yum install git -y    
+    ubuntu：sudo apt-get install git -y    
 
-Q：怎么看ASF目录啊
-A：cd进ASF所在目录，然后输入pwd
+Q：为啥没有其他系统的呀    
+A：因为还没做适配呀（已经做适配了）    
 
-Q:为啥会出现no crontab for root啊
-A：这是因为你的系统还没有一个定时计划
-    在 root 用户下输入 crontab -e
-按 Esc 按： wq   回车输入
-然后就可以继续执行啦！
+Q：怎么看ASF目录啊    
+A：cd进ASF所在目录，然后输入pwd    
+
+Q:为啥会出现no crontab for root啊    
+A：这是因为你的系统还没有一个定时计划    
+    在 root 用户下输入 crontab -e    
+按 Esc 按： wq   回车输入    
+然后就可以继续执行啦！    
