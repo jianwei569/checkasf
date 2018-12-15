@@ -16,6 +16,14 @@
 一条命令直接搞定：
 git clone https://github.com/jianwei569/checkasf && cd checkasf && chmod +x *.sh
 
+执行脚本：
+
+（脚本执行一次即可）    
+中文版请执行./checkasf_cn.sh     
+英文版请执行./checkasf_en.sh    
+
+path.json中的内容为ASF的路径    
+crontab.sh为自动执行的脚本，想手动开始ASF可以执行这个脚本。
 
 分步骤
 
